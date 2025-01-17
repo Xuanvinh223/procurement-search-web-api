@@ -4,3 +4,1441 @@
 
 2025/01/17 12:34:29 C:/Users/IT-01/Desktop/golang-gin-web-api-template/internal/pkg/database/database.go:75
 [info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/golang-gin-web-api-template/internal/pkg/database/database.go:75
+
+2025/01/17 13:02:18 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 13:02:18 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 13:13:27 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 13:13:27 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 13:14:16 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 13:14:16 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:18:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:18:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:22:17 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:22:17 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:22:20 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:22:20 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:22:20 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:32 mssql: Invalid object name 'ddzl'.
+[12.950ms] [rows:-] select *,DATEDIFF(DAY,Startdate,EndDate) as DiffDay from
+(
+select DDBH,
+(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by
+USERDATE) as StartDate,
+(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by
+INDATE Desc) as EndDate
+from (
+select *,(select sum(QTY) from YWCP
+where DDBH = ddzl.DDBH) as OKQTY from (
+select DDBH,Pairs from ddzl
+where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+) ddzl
+) ddzl
+where pairs = OKQTY 
+) YWCP1
+order by DiffDay
+
+2025/01/17 14:23:44 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:23:44 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:23:48 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:23:48 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:23:48 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:33 mssql: Invalid object name 'ddzl'.
+[11.294ms] [rows:-] select *,DATEDIFF(DAY,Startdate,EndDate) as DiffDay from
+(
+select DDBH,
+(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by
+USERDATE) as StartDate,
+(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by
+INDATE Desc) as EndDate
+from (
+select *,(select sum(QTY) from YWCP
+where DDBH = ddzl.DDBH) as OKQTY from (
+select DDBH,Pairs from ddzl
+where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+) ddzl
+) ddzl
+where pairs = OKQTY 
+) YWCP1
+order by DiffDay
+
+2025/01/17 14:31:03 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:31:03 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:31:06 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:31:06 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:31:06 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:33 mssql: Invalid object name 'dbo.ddzl'.
+[11.117ms] [rows:-] select *,DATEDIFF(DAY,Startdate,EndDate) as DiffDay from
+(
+select DDBH,
+(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by
+USERDATE) as StartDate,
+(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by
+INDATE Desc) as EndDate
+from (
+select *,(select sum(QTY) from YWCP
+where DDBH = ddzl.DDBH) as OKQTY from (
+select DDBH,Pairs from dbo.ddzl
+where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+) ddzl
+) ddzl
+where pairs = OKQTY 
+) YWCP1
+order by DiffDay
+
+2025/01/17 14:32:45 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:32:45 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:32:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:32:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:32:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 mssql: Invalid object name 'dbo.ddzl'.
+[11.444ms] [rows:-] 
+			select *,DATEDIFF(DAY,Startdate,EndDate) as DiffDay from
+			(
+			select DDBH,
+			(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by
+			USERDATE) as StartDate,
+			(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by
+			INDATE Desc) as EndDate
+			from (
+			select *,(select sum(QTY) from YWCP
+			where DDBH = ddzl.DDBH) as OKQTY from (
+			select DDBH,Pairs from dbo.ddzl
+			where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+			) ddzl
+			) ddzl
+			where pairs = OKQTY 
+			) YWCP1
+			order by DiffDay
+
+2025/01/17 14:33:27 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:33:27 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:34:50 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:34:50 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:34:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:34:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:34:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:49 mssql: Invalid object name 'dbo.ddzl'.
+[13.077ms] [rows:-] 
+		select *, DATEDIFF(DAY, Startdate, EndDate) as DiffDay from
+		(
+			select DDBH,
+			(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by USERDATE) as StartDate,
+			(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by INDATE Desc) as EndDate
+			from (
+				select *, (select sum(QTY) from YWCP where DDBH = ddzl.DDBH) as OKQTY
+				from (
+					select DDBH, Pairs from dbo.ddzl
+					where left(BUYNO,6) = 'BUYNO ' and GSBH = 'GSBH test' and pairs > 1
+				) ddzl
+			) ddzl
+			where pairs = OKQTY 
+		) YWCP1
+		order by DiffDay
+	
+
+2025/01/17 14:35:24 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:35:24 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:35:24 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:49 mssql: Invalid object name 'dbo.ddzl'.
+[15.533ms] [rows:-] 
+		select *, DATEDIFF(DAY, Startdate, EndDate) as DiffDay from
+		(
+			select DDBH,
+			(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by USERDATE) as StartDate,
+			(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by INDATE Desc) as EndDate
+			from (
+				select *, (select sum(QTY) from YWCP where DDBH = ddzl.DDBH) as OKQTY
+				from (
+					select DDBH, Pairs from dbo.ddzl
+					where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+				) ddzl
+			) ddzl
+			where pairs = OKQTY 
+		) YWCP1
+		order by DiffDay
+	
+
+2025/01/17 14:35:25 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:35:25 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:35:25 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:49 mssql: Invalid object name 'dbo.ddzl'.
+[10.472ms] [rows:-] 
+		select *, DATEDIFF(DAY, Startdate, EndDate) as DiffDay from
+		(
+			select DDBH,
+			(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by USERDATE) as StartDate,
+			(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by INDATE Desc) as EndDate
+			from (
+				select *, (select sum(QTY) from YWCP where DDBH = ddzl.DDBH) as OKQTY
+				from (
+					select DDBH, Pairs from dbo.ddzl
+					where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+				) ddzl
+			) ddzl
+			where pairs = OKQTY 
+		) YWCP1
+		order by DiffDay
+	
+
+2025/01/17 14:35:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:35:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:35:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:49 mssql: Invalid object name 'dbo.ddzl'.
+[10.473ms] [rows:-] 
+		select *, DATEDIFF(DAY, Startdate, EndDate) as DiffDay from
+		(
+			select DDBH,
+			(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by USERDATE) as StartDate,
+			(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by INDATE Desc) as EndDate
+			from (
+				select *, (select sum(QTY) from YWCP where DDBH = ddzl.DDBH) as OKQTY
+				from (
+					select DDBH, Pairs from dbo.ddzl
+					where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+				) ddzl
+			) ddzl
+			where pairs = OKQTY 
+		) YWCP1
+		order by DiffDay
+	
+
+2025/01/17 14:37:02 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:37:02 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:37:04 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:37:04 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:37:04 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:49 mssql: Invalid object name 'dbo.ddzl'.
+[14.746ms] [rows:-] 
+		select top 100 *, DATEDIFF(DAY, Startdate, EndDate) as DiffDay from
+		(
+			select DDBH,
+			(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by USERDATE) as StartDate,
+			(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by INDATE Desc) as EndDate
+			from (
+				select *, (select sum(QTY) from YWCP where DDBH = ddzl.DDBH) as OKQTY
+				from (
+					select DDBH, Pairs from dbo.ddzl
+					where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+				) ddzl
+			) ddzl
+			where pairs = OKQTY 
+		) YWCP1
+		order by DiffDay
+	
+
+2025/01/17 14:37:05 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:37:05 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:37:05 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:49 mssql: Invalid object name 'dbo.ddzl'.
+[10.809ms] [rows:-] 
+		select top 100 *, DATEDIFF(DAY, Startdate, EndDate) as DiffDay from
+		(
+			select DDBH,
+			(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by USERDATE) as StartDate,
+			(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by INDATE Desc) as EndDate
+			from (
+				select *, (select sum(QTY) from YWCP where DDBH = ddzl.DDBH) as OKQTY
+				from (
+					select DDBH, Pairs from dbo.ddzl
+					where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+				) ddzl
+			) ddzl
+			where pairs = OKQTY 
+		) YWCP1
+		order by DiffDay
+	
+
+2025/01/17 14:37:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:37:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:37:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:37:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:37:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:48 mssql: Invalid object name 'dbo.ddzl'.
+[11.416ms] [rows:-] 
+		select top 100 *, DATEDIFF(DAY, Startdate, EndDate) as DiffDay from
+		(
+			select DDBH,
+			(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by USERDATE) as StartDate,
+			(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by INDATE Desc) as EndDate
+			from (
+				select *, (select sum(QTY) from YWCP where DDBH = ddzl.DDBH) as OKQTY
+				from (
+					select DDBH, Pairs from dbo.ddzl
+					where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+				) ddzl
+			) ddzl
+			where pairs = OKQTY 
+		) YWCP1
+		order by DiffDay
+	
+
+2025/01/17 14:38:41 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:38:41 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:38:46 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:38:46 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:38:46 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:48 mssql: Invalid object name 'ddzl'.
+[11.907ms] [rows:-] 
+		select top 100 *, DATEDIFF(DAY, Startdate, EndDate) as DiffDay from
+		(
+			select DDBH,
+			(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by USERDATE) as StartDate,
+			(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by INDATE Desc) as EndDate
+			from (
+				select *, (select sum(QTY) from YWCP where DDBH = ddzl.DDBH) as OKQTY
+				from (
+					select DDBH, Pairs from ddzl
+					where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+				) ddzl
+			) ddzl
+			where pairs = OKQTY 
+		) YWCP1
+		order by DiffDay
+	
+
+2025/01/17 14:40:10 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:40:10 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:40:10 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:48 mssql: Invalid object name 'ddzl'.
+[10.834ms] [rows:-] 
+		select top 100 *, DATEDIFF(DAY, Startdate, EndDate) as DiffDay from
+		(
+			select DDBH,
+			(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by USERDATE) as StartDate,
+			(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by INDATE Desc) as EndDate
+			from (
+				select *, (select sum(QTY) from YWCP where DDBH = ddzl.DDBH) as OKQTY
+				from (
+					select DDBH, Pairs from ddzl
+					where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+				) ddzl
+			) ddzl
+			where pairs = OKQTY 
+		) YWCP1
+		order by DiffDay
+	
+
+2025/01/17 14:40:11 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:40:11 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:40:11 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:48 mssql: Invalid object name 'ddzl'.
+[10.531ms] [rows:-] 
+		select top 100 *, DATEDIFF(DAY, Startdate, EndDate) as DiffDay from
+		(
+			select DDBH,
+			(select top 1 USERDATE from KCRKS where CGBH = ddzl.DDBH order by USERDATE) as StartDate,
+			(select top 1 INDATE from YWCP where DDBH = ddzl.DDBH order by INDATE Desc) as EndDate
+			from (
+				select *, (select sum(QTY) from YWCP where DDBH = ddzl.DDBH) as OKQTY
+				from (
+					select DDBH, Pairs from ddzl
+					where left(BUYNO,6) = '202407' and GSBH = 'VA12' and pairs > 1
+				) ddzl
+			) ddzl
+			where pairs = OKQTY 
+		) YWCP1
+		order by DiffDay
+	
+
+2025/01/17 14:41:59 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:41:59 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:42:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:42:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:42:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:49 mssql: Invalid object name 'ddzl'.
+[12.510ms] [rows:-] 
+		SELECT TOP 100 *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+    	FROM (
+        SELECT DDBH,
+            (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+            (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+        FROM (
+            SELECT *, (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+            FROM (
+                SELECT DDBH, Pairs FROM ddzl
+                WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+            ) ddzl
+        ) ddzl
+        WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay;
+	
+
+2025/01/17 14:42:23 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:42:23 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:42:25 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:42:25 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:42:25 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:49 mssql: Invalid object name 'dbo.ddzl'.
+[11.227ms] [rows:-] 
+		SELECT TOP 100 *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+    	FROM (
+        SELECT DDBH,
+            (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+            (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+        FROM (
+            SELECT *, (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+            FROM (
+                SELECT DDBH, Pairs FROM dbo.ddzl
+                WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+            ) ddzl
+        ) ddzl
+        WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay;
+	
+
+2025/01/17 14:44:21 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:44:21 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:44:26 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:44:26 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:45:03 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:49 mssql: Invalid object name 'dbo.ddzl'.
+[11.313ms] [rows:-] 
+		SELECT TOP 100 *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+    	FROM (
+        SELECT DDBH,
+            (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+            (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+        FROM (
+            SELECT *, (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+            FROM (
+                SELECT DDBH, Pairs FROM dbo.ddzl
+                WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+            ) ddzl
+        ) ddzl
+        WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay;
+	
+
+2025/01/17 14:46:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:46:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:46:24 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:46:24 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:46:24 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:33 mssql: An object or column name is missing or empty. For SELECT INTO statements, verify each column has a name. For other statements, look for empty alias names. Aliases defined as "" or [] are not allowed. Change the alias to a valid name.
+[63.702ms] [rows:-] SELECT * FROM ""
+
+2025/01/17 14:47:06 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:47:06 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:47:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:47:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:47:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:33 mssql: Invalid object name 'dbo.ddzl'.
+[9.963ms] [rows:-] SELECT DDBH, Pairs FROM dbo.ddzl
+
+2025/01/17 14:48:12 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:48:12 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:48:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:48:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:48:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:33 mssql: Invalid object name 'WF_Out'.
+[13.022ms] [rows:-] select top 10 * from WF_Out
+
+2025/01/17 14:48:35 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:48:35 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:48:38 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:48:38 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:48:38 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:33 mssql: Invalid object name 'WF_Out'.
+[10.412ms] [rows:-] select top 10 * from WF_Out
+
+2025/01/17 14:50:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:50:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:51:00 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:51:00 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:51:00 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 mssql: Invalid object name 'ddzl'.
+[15.785ms] [rows:-] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 14:53:09 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:09 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:12 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:12 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:12 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 mssql: Invalid object name 'ddzl'.
+[12.048ms] [rows:-] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 14:53:13 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:13 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:13 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 mssql: Invalid object name 'ddzl'.
+[9.503ms] [rows:-] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 14:53:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 mssql: Invalid object name 'ddzl'.
+[10.279ms] [rows:-] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 14:53:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 mssql: Invalid object name 'ddzl'.
+[10.541ms] [rows:-] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 14:53:51 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:51 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:53 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:53:53 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:54:46 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 mssql: Invalid object name 'ddzl'.
+[11.373ms] [rows:-] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 14:57:03 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:57:03 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:57:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:57:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:57:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 mssql: Invalid object name 'ddzl'.
+[10.711ms] [rows:-] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 14:59:00 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:59:00 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:59:04 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:59:04 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:59:04 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 mssql: Invalid object name 'ddzl'.
+[10.210ms] [rows:-] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 14:59:30 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:59:30 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:59:30 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[error] failed to initialize database, got error lookup 192.168.23.122s: no such host
+
+2025/01/17 14:59:38 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:59:38 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:59:38 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[error] failed to initialize database, got error lookup 192.168.23.122s: no such host
+
+2025/01/17 14:59:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:59:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:59:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[error] failed to initialize database, got error lookup 192.168.23.122s: no such host
+
+2025/01/17 14:59:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 14:59:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:00:39 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:00:39 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:00:39 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[error] failed to initialize database, got error mssql: login error: Cannot open database "LIY_ERP22222" that was requested by the login. Using the user default database "master" instead.
+
+2025/01/17 15:00:48 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:00:48 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:00:51 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:00:51 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:00:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 mssql: Invalid object name 'ddzl'.
+[13.844ms] [rows:-] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 15:01:42 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:01:42 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:01:46 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:01:46 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:01:46 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:37 mssql: Invalid object name 'WF_Out'.
+[10.300ms] [rows:-] 
+		select top 10 * from WF_Out
+	
+
+2025/01/17 15:02:19 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:02:19 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:02:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:02:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:02:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:37 mssql: Invalid object name 'WF_Out'.
+[9.506ms] [rows:-] 
+		select top 10 * from WF_Out
+	
+
+2025/01/17 15:03:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:03:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:04:00 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:04:00 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:04:00 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:36 mssql: Invalid object name 'WF_Out'.
+[10.024ms] [rows:-] 
+		select top 10 * from WF_Out
+	
+
+2025/01/17 15:04:01 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:04:01 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:04:01 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:36 mssql: Invalid object name 'WF_Out'.
+[9.747ms] [rows:-] 
+		select top 10 * from WF_Out
+	
+
+2025/01/17 15:04:02 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:04:02 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:04:02 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:36 mssql: Invalid object name 'WF_Out'.
+[9.825ms] [rows:-] 
+		select top 10 * from WF_Out
+	
+
+2025/01/17 15:06:51 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:06:51 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:07:33 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:07:33 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:08:02 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:08:02 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:08:02 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[error] failed to initialize database, got error TLS Handshake failed: tls: either ServerName or InsecureSkipVerify must be specified in the tls.Config
+
+2025/01/17 15:08:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:08:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:08:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[error] failed to initialize database, got error TLS Handshake failed: tls: either ServerName or InsecureSkipVerify must be specified in the tls.Config
+
+2025/01/17 15:08:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:08:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:08:25 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:08:25 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:08:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:08:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:09:00 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:09:00 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:09:00 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:37 mssql: Invalid object name 'WF_Out'.
+[9.976ms] [rows:-] 
+		select top 10 * from WF_Out
+	
+
+2025/01/17 15:11:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:11:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:11:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:11:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:11:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:36 sql: Scan error on column index 0, name "CurrentDatabase": unsupported Scan, storing driver.Value type string into type *sql.DB
+[9.357ms] [rows:1] SELECT DB_NAME() AS CurrentDatabase
+
+2025/01/17 15:11:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:40 mssql: Invalid object name 'WF_Out'.
+[10.546ms] [rows:-] 
+		select top 10 * from WF_Out
+	
+
+2025/01/17 15:12:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:12:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:12:39 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:12:39 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:12:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:12:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:12:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:37 mssql: Invalid object name 'WF_Out'.
+[10.358ms] [rows:-] 
+		select top 10 * from WF_Out
+	
+
+2025/01/17 15:12:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:12:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:17:10 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:17:10 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:17:10 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:37 mssql: Invalid object name 'WF_Out'.
+[12.708ms] [rows:-] 
+		select top 10 * from WF_Out
+	
+
+2025/01/17 15:25:06 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:25:06 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:25:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:25:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:25:08 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:37
+[13.501ms] [rows:10] 
+		select top 10 * from WF_Out
+	
+
+2025/01/17 15:26:35 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:26:35 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:26:40 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:26:40 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:26:43 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 SLOW SQL >= 1s
+[2550.786ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 15:27:27 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:27:27 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:27:30 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:27:30 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:27:32 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 SLOW SQL >= 1s
+[2162.929ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 15:28:30 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:28:30 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:28:34 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:28:34 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:28:36 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 SLOW SQL >= 1s
+[2452.419ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 15:28:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:28:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:29:05 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:29:05 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:29:07 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 SLOW SQL >= 1s
+[2358.015ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 15:29:40 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:29:40 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:29:44 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:29:44 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:29:46 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 SLOW SQL >= 1s
+[2186.240ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 15:53:39 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:53:39 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:53:41 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:53 SLOW SQL >= 1s
+[2185.741ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 15:54:07 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:54:07 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:54:10 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:54:10 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:54:13 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2663.494ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/17 15:56:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:56:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:56:56 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:56:56 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 15:56:58 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:94 sql: Scan error on column index 0, name "Average": unsupported Scan, storing driver.Value type []uint8 into type *types.YWCP
+[2164.347ms] [rows:1] 
+		SELECT CAST(AVG(CAST(s.DiffDay AS FLOAT)) AS DECIMAL(10, 4)) AS Average
+		FROM (
+			SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+			FROM (
+				SELECT DDBH,
+					   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+					   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+				FROM (
+					SELECT *, (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+					FROM (
+						SELECT DDBH, Pairs
+						FROM ddzl
+						WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND Pairs > 1
+					) ddzl
+				) ddzl
+				WHERE Pairs = OKQTY
+			) YWCP1
+		) AS s;
+	
+
+2025/01/17 16:00:09 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 16:00:09 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 16:00:13 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 16:00:13 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 16:00:15 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:93 SLOW SQL >= 1s
+[2115.828ms] [rows:1] 
+		SELECT CAST(AVG(CAST(s.DiffDay AS FLOAT)) AS DECIMAL(10, 4)) AS Average
+		FROM (
+			SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+			FROM (
+				SELECT DDBH,
+					   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+					   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+				FROM (
+					SELECT *, (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+					FROM (
+						SELECT DDBH, Pairs
+						FROM ddzl
+						WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND Pairs > 1
+					) ddzl
+				) ddzl
+				WHERE Pairs = OKQTY
+			) YWCP1
+		) AS s;
+	
+
+2025/01/17 16:12:48 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 16:12:48 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 16:12:51 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 16:12:51 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/17 16:12:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2190.015ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	

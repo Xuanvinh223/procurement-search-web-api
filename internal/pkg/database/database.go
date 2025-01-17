@@ -128,6 +128,6 @@ func RPConnection() (*gorm.DB, error) {
 	configuration.Database.Host = "192.168.23.122"
 	configuration.Database.Username = "tyxuan"
 	configuration.Database.Password = "Erp@admin2309"
-	configuration.Database.Dbname = "TYX_ReportWebDB"
+	configuration.Database.Dbname = "LIY_ERP"
 	return CreateDatabaseConnection(configuration)
 }
