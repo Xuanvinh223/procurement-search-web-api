@@ -1,0 +1,6 @@
+
+2025/01/17 12:34:29 C:/Users/IT-01/Desktop/golang-gin-web-api-template/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/golang-gin-web-api-template/internal/pkg/database/database.go:75
+
+2025/01/17 12:34:29 C:/Users/IT-01/Desktop/golang-gin-web-api-template/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/golang-gin-web-api-template/internal/pkg/database/database.go:75
