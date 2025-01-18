@@ -1442,3 +1442,927 @@ order by DiffDay
 		) YWCP1
 		ORDER BY DiffDay
 	
+
+2025/01/18 07:39:18 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:39:18 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:39:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:39:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:39:33 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[10961.388ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 07:41:03 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:41:03 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:41:05 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:93 SLOW SQL >= 1s
+[2323.998ms] [rows:1] 
+		SELECT CAST(AVG(CAST(s.DiffDay AS FLOAT)) AS DECIMAL(10, 4)) AS Average
+		FROM (
+			SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+			FROM (
+				SELECT DDBH,
+					   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+					   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+				FROM (
+					SELECT *, (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+					FROM (
+						SELECT DDBH, Pairs
+						FROM ddzl
+						WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND Pairs > 1
+					) ddzl
+				) ddzl
+				WHERE Pairs = OKQTY
+			) YWCP1
+		) AS s;
+	
+
+2025/01/18 07:45:28 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:45:28 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:45:29 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50
+[764.998ms] [rows:0] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA129' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 07:45:32 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:45:32 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:45:34 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2281.696ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 07:57:15 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:57:15 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:57:17 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:93 SLOW SQL >= 1s
+[2093.230ms] [rows:1] 
+		SELECT CAST(AVG(CAST(s.DiffDay AS FLOAT)) AS DECIMAL(10, 4)) AS Average
+		FROM (
+			SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+			FROM (
+				SELECT DDBH,
+					   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+					   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+				FROM (
+					SELECT *, (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+					FROM (
+						SELECT DDBH, Pairs
+						FROM ddzl
+						WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND Pairs > 1
+					) ddzl
+				) ddzl
+				WHERE Pairs = OKQTY
+			) YWCP1
+		) AS s;
+	
+
+2025/01/18 07:57:23 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:57:23 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:57:23 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50
+[755.329ms] [rows:0] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = '' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 07:57:49 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:57:49 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 07:57:51 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2255.964ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 08:05:32 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:05:32 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:06:11 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:06:11 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:06:14 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2236.418ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 08:08:51 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:08:51 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:08:53 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:93 SLOW SQL >= 1s
+[2130.741ms] [rows:1] 
+		SELECT CAST(AVG(CAST(s.DiffDay AS FLOAT)) AS DECIMAL(10, 4)) AS Average
+		FROM (
+			SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+			FROM (
+				SELECT DDBH,
+					   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+					   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+				FROM (
+					SELECT *, (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+					FROM (
+						SELECT DDBH, Pairs
+						FROM ddzl
+						WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND Pairs > 1
+					) ddzl
+				) ddzl
+				WHERE Pairs = OKQTY
+			) YWCP1
+		) AS s;
+	
+
+2025/01/18 08:19:58 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:19:58 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:20:05 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:20:05 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:20:06 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:93 sql: Scan error on column index 0, name "Average": converting NULL to float32 is unsupported
+[869.699ms] [rows:1] 
+		SELECT CAST(AVG(CAST(s.DiffDay AS FLOAT)) AS DECIMAL(10, 4)) AS Average
+		FROM (
+			SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+			FROM (
+				SELECT DDBH,
+					   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+					   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+				FROM (
+					SELECT *, (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+					FROM (
+						SELECT DDBH, Pairs
+						FROM ddzl
+						WHERE LEFT(BUYNO, 6) = '' AND GSBH = 'VA12' AND Pairs > 1
+					) ddzl
+				) ddzl
+				WHERE Pairs = OKQTY
+			) YWCP1
+		) AS s;
+	
+
+2025/01/18 08:21:27 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:21:27 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:21:31 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:21:31 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:21:32 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:93 sql: Scan error on column index 0, name "Average": converting NULL to float32 is unsupported
+[698.953ms] [rows:1] 
+		SELECT CAST(AVG(CAST(s.DiffDay AS FLOAT)) AS DECIMAL(10, 4)) AS Average
+		FROM (
+			SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+			FROM (
+				SELECT DDBH,
+					   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+					   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+				FROM (
+					SELECT *, (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+					FROM (
+						SELECT DDBH, Pairs
+						FROM ddzl
+						WHERE LEFT(BUYNO, 6) = '' AND GSBH = 'VA12' AND Pairs > 1
+					) ddzl
+				) ddzl
+				WHERE Pairs = OKQTY
+			) YWCP1
+		) AS s;
+	
+
+2025/01/18 08:21:41 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:21:41 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:21:43 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2324.561ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 08:21:45 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:21:45 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:21:46 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50
+[863.619ms] [rows:0] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 08:21:55 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:21:55 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:21:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2114.940ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 08:22:02 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:22:02 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:22:04 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:93 SLOW SQL >= 1s
+[2088.010ms] [rows:1] 
+		SELECT CAST(AVG(CAST(s.DiffDay AS FLOAT)) AS DECIMAL(10, 4)) AS Average
+		FROM (
+			SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+			FROM (
+				SELECT DDBH,
+					   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+					   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+				FROM (
+					SELECT *, (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+					FROM (
+						SELECT DDBH, Pairs
+						FROM ddzl
+						WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND Pairs > 1
+					) ddzl
+				) ddzl
+				WHERE Pairs = OKQTY
+			) YWCP1
+		) AS s;
+	
+
+2025/01/18 08:35:50 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:35:50 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:35:53 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:35:53 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:35:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50
+[810.643ms] [rows:0] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 08:41:13 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:41:13 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:41:15 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2097.368ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 08:43:40 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:43:40 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:43:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:43:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:43:50 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2130.010ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 08:50:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:50:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:51:04 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:51:04 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:51:06 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2390.613ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 08:51:45 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:51:45 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:51:59 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:51:59 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:52:02 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2569.509ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 08:52:38 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:52:38 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:52:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:52:47 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:52:50 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2113.924ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 08:58:40 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:58:40 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:58:50 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:58:50 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 08:58:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2354.580ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 09:01:59 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:01:59 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:02:03 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:02:03 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:02:05 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2301.050ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 09:03:27 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:03:27 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:03:39 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:03:39 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:03:42 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:03:42 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:03:44 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2318.830ms] [rows:3681] SELECT ROW_NUMBER() OVER (ORDER BY DDBH) AS STT, 
+			*, 
+			DATEDIFF(DAY, StartDate, EndDate) AS DiffDay 
+		FROM (
+			SELECT DDBH,
+				(SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				(SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *, 
+					(SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs 
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND Pairs > 1
+				) ddzl
+			) ddzl
+			WHERE Pairs = OKQTY
+		) YWCP1
+		ORDER BY DDBH
+
+2025/01/18 09:07:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:07:52 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:07:56 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:07:56 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:07:58 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2164.962ms] [rows:3681] SELECT ROW_NUMBER() OVER (ORDER BY DDBH) AS STT, 
+			*, 
+			DATEDIFF(DAY, StartDate, EndDate) AS DiffDay 
+		FROM (
+			SELECT DDBH,
+				(SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				(SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *, 
+					(SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs 
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND Pairs > 1
+				) ddzl
+			) ddzl
+			WHERE Pairs = OKQTY
+		) YWCP1
+		ORDER BY DDBH
+
+2025/01/18 09:09:28 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:09:28 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:09:39 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:09:39 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:09:40 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50
+[732.761ms] [rows:0] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = '' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 09:09:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:09:54 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:09:57 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[3679.472ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 09:10:29 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:10:29 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:10:32 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:10:32 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:10:32 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 mssql: Incorrect syntax near '?'.
+[10.009ms] [rows:-] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = ? AND GSBH = ? AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 09:10:43 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:10:43 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:10:46 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:10:46 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:10:48 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2503.435ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
+
+2025/01/18 09:12:15 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:12:15 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:12:20 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:create` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:12:20 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+[info] replacing callback `gorm:update` from C:/Users/IT-01/Desktop/procurement-search-web-api/internal/pkg/database/database.go:75
+
+2025/01/18 09:12:22 C:/Users/IT-01/Desktop/procurement-search-web-api/internal/api/services/procurement_service.go:50 SLOW SQL >= 1s
+[2456.085ms] [rows:3681] 
+		SELECT *, DATEDIFF(DAY, Startdate, EndDate) AS DiffDay
+		FROM (
+			SELECT DDBH,
+				   (SELECT TOP 1 USERDATE FROM KCRKS WHERE CGBH = ddzl.DDBH ORDER BY USERDATE) AS StartDate,
+				   (SELECT TOP 1 INDATE FROM YWCP WHERE DDBH = ddzl.DDBH ORDER BY INDATE DESC) AS EndDate
+			FROM (
+				SELECT *,
+					   (SELECT SUM(QTY) FROM YWCP WHERE DDBH = ddzl.DDBH) AS OKQTY
+				FROM (
+					SELECT DDBH, Pairs
+					FROM ddzl
+					WHERE LEFT(BUYNO, 6) = '202407' AND GSBH = 'VA12' AND pairs > 1
+				) ddzl
+			) ddzl
+			WHERE pairs = OKQTY
+		) YWCP1
+		ORDER BY DiffDay
+	
